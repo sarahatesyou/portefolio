@@ -190,6 +190,18 @@ body {
 .contact p {
   font-size: 5rem;
 }
+.contact p a {
+  color: #111;
+  background-color: #f7c78c;
+  border: 10px #111 solid;
+  padding: 1rem;
+  text-decoration: none;
+}
+
+.contact p a:hover {
+  background-color: #ac5f01;
+  text-decoration: none;
+}
 
 .social {
   display: flex;
@@ -205,6 +217,14 @@ body {
 .fa-github {
   font-size: 2rem;
   color: #000;
+}
+
+footer a {
+  color: #4c3b47;
+  font-weight: bold;
+}
+footer a:hover {
+  text-decoration: overline;
 }
 
 /* MOBILE STYLES */
