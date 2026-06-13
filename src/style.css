@@ -112,28 +112,23 @@ body {
 }
 .work .grid {
   display: grid;
-  grid-template-columns: repeat(4, 200px);
-  grid-template-rows: repeat(2, 150px);
-  gap: 1rem;
+  grid-template-columns: 150px 1fr 150px 1fr;
+  gap: 1 rem;
+  align-items: center;
+  width: 100%;
 }
 .work .item {
   background: black;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: visible;
   scrollbar-width: thin;
   scrollbar-color: #aacf61 #111;
 }
 .work .item img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
   display: block;
-  margin: auto;
-  border: 8px solid #8ace00;
 }
-.work .item img:hover {
-  border: 8px solid #aacf61;
-}
+
 .work .item a {
   color: #8ace00;
   text-decoration: none;
@@ -299,14 +294,16 @@ a:visited {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    text-align: center;
   }
   .work .item {
     width: 100%;
     height: auto;
   }
   .work .item img {
-    max-width: 100%;
-    max-height: none;
+    max-width: 50%;
+    max-height: 50%;
+    margin: 0 auto;
   }
   .contact .main-content {
     flex: 1 1 auto;

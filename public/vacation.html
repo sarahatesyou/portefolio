@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sadie went to Vienna</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=KoHo:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100vh;
+        overflow: hidden;
+        font-family: "KoHo", sans-serif;
+      }
+
+      .container {
+        display: flex;
+        overflow-x: auto;
+        height: 100vh;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+      }
+
+      .section {
+        flex: none;
+        width: 100vw;
+        height: 100vh;
+        scroll-snap-align: start;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+        color: white;
+      }
+
+      .section h1,
+      .section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .section small {
+        display: block;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        opacity: 0.8;
+      }
+
+      .section p {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .intro {
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+          url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/165/210/original/IMG-20231211-WA0024.jpg?1746709176");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center 70%;
+      }
+
+      .holiday {
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+          url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/165/227/original/IMG_20231210_124354.jpg?1746722784");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center 50%;
+      }
+
+      .cafe {
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+          url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/165/244/original/IMG-20231210-WA0019.jpg?1746732694");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center 50%;
+      }
+
+      .citycenter {
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+          url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/165/247/original/photo0jpg.jpg?1746733194");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center 50%;
+      }
+
+      .goodbye {
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+          url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/165/250/original/IMG_20231212_154224.jpg?1746734557");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center 50%;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        color: #fff;
+        border: 1px solid white;
+        border-radius: 30px;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: transparent;
+      }
+
+      .btn:hover {
+        background: white;
+        color: #000;
+      }
+
+      .nav-container {
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        z-index: 100;
+        font-size: 1rem;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 1rem;
+      }
+
+      .nav-links li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 0.3rem 0.6rem;
+        transition: 0.3s;
+      }
+
+      .nav-links li a:hover {
+        text-decoration: underline;
+      }
+
+      .nav-toggle {
+        display: none;
+      }
+
+      .nav-toggle-label {
+        display: none;
+        font-size: 2rem;
+        color: white;
+        cursor: pointer;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 2.5rem;
+          left: 0;
+          flex-direction: column;
+          background: rgba(0, 0, 0, 0.8);
+          padding: 1rem;
+          border-radius: 0 0 10px 10px;
+        }
+
+        .nav-toggle:checked + .nav-toggle-label + .nav-links {
+          display: flex;
+        }
+
+        .nav-toggle-label {
+          display: block;
+        }
+      }
+
+      @media (max-width: 960px) {
+        .intro,
+        .holiday,
+        .cafe,
+        .citycenter,
+        .goodbye {
+          background-position: center;
+          height: 100vh;
+        }
+
+        .section h1,
+        .section h2 {
+          font-size: 2rem;
+        }
+
+        .section p {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav-container">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="nav-toggle-label">☰</label>
+
+      <ul class="nav-links">
+        <li><a href="#intro">Home</a></li>
+        <li><a href="#holiday">Holidays</a></li>
+        <li><a href="#cafe">Cafés</a></li>
+        <li><a href="#citycenter">City</a></li>
+        <li><a href="#goodbye">End</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <section id="intro" class="section intro">
+        <div>
+          <h1>Holidays in Vienna 🇦🇹</h1>
+          <small>Minimal adventures, grand impressions</small>
+          <p>A journey through snowy streets, warm cafés and timeless music</p>
+          <a href="https://www.austria.info/en-gb/" class="btn" target="_blank"
+            >Travel to Austria</a
+          >
+        </div>
+      </section>
+
+      <section class="section holiday" id="holiday">
+        <div>
+          <h2>Holiday Season in Style 🎁</h2>
+          <small>Snowflakes and sparkle</small>
+          <p>Christmas Markets, mulled wine and soup in bread bowls</p>
+          <a
+            href="https://www.wien.info/en/shopping-wining-dining/markets/christmas-markets"
+            class="btn"
+            target="_blank"
+            >Vienna Christmas Markets</a
+          >
+        </div>
+      </section>
+
+      <section class="section cafe" id="cafe">
+        <div>
+          <h2>Viennese coffee houses ☕</h2>
+          <small>Where time slows down</small>
+          <p>Long afternoons sipping coffee and reading in historic cafés</p>
+          <a
+            href="https://www.wien.info/en/eating-drinking/coffeehouses"
+            class="btn"
+            target="_blank"
+            >Explore Cafés</a
+          >
+        </div>
+      </section>
+
+      <section class="section citycenter" id="citycenter">
+        <div>
+          <h2>City Center Sights</h2>
+          <small>Streets full of stories</small>
+          <p>
+            From luxury windows to the Anker Clock show, every step is a
+            postcard
+          </p>
+          <a
+            href="https://www.wien.info/en/sightseeing"
+            class="btn"
+            target="_blank"
+            >Top Sights</a
+          >
+        </div>
+      </section>
+
+      <section class="section goodbye" id="goodbye">
+        <div>
+          <h2>See you soon, Vienna 💕</h2>
+          <small>This was only the beginning</small>
+          <p>I left with a full heart and a bag full of Mozartkugeln</p>
+          <a
+            href="https://www.wien.info/en/travel-info"
+            class="btn"
+            target="_blank"
+            >Plan your return</a
+          >
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
