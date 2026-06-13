@@ -159,7 +159,16 @@ export default function SaraPortfolio() {
       <section className="section contact" id="contact">
         <div className="main-content">
           <div className="content-block">
-            <p>📧 hello@sarahatesyou.pt</p>
+            <p>
+              📧{" "}
+              <a
+                href="mailto:hello@sarahatesyou.pt"
+                target="_blank"
+                rel="noreferrer"
+              >
+                hello@sarahatesyou.pt
+              </a>
+            </p>
             <div className="social">
               <a
                 href="https://www.linkedin.com/in/sarahatesyou"

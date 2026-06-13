@@ -163,14 +163,14 @@ body {
   margin-top: auto;
 }
 
-.contact footer a,
+.contact a,
 a:visited {
   text-decoration: none;
   color: #416002;
   font-weight: bold;
 }
 
-.contact footer a:hover {
+.contact a:hover {
   text-decoration: overline;
 }
 
